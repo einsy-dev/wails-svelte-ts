@@ -1,0 +1,32 @@
+@import 'tailwindcss';
+
+* {
+	box-sizing: border-box;
+	scrollbar-width: none;
+	user-select: none;
+}
+
+textarea {
+	user-select: auto;
+}
+
+.card {
+	@apply border bg-black text-white rounded-lg p-4
+}
+
+table, td, th {
+	border-collapse: collapse;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+	-webkit-box-shadow: 0 0 0 1000px inset !important;
+	-webkit-text-fill-color: white !important;
+}

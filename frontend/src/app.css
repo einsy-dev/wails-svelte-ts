@@ -9,6 +9,9 @@
 textarea {
 	user-select: auto;
 }
+input {
+	outline: none;	
+}
 
 .card {
 	@apply border bg-black text-white rounded-lg p-4

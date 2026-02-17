@@ -1,5 +1,9 @@
 # README
 
+## Required
+
+- gcc
+
 ## About
 
 This project is a **Wails** template that combines several modern technologies to create a robust web and desktop application. The following technologies have been added and integrated:

@@ -19,8 +19,8 @@ func RegistryEdit() {
 
 	// 2. Read existing disabled keys to avoid duplicates
 	existing, _, _ := key.GetStringValue("DisabledHotkeys")
-	if !strings.Contains(strings.ToUpper(existing), "C") {
-		newVal := existing + "C"
+	if !strings.Contains(strings.ToUpper(existing), "V") {
+		newVal := existing + "V"
 		if err := key.SetStringValue("DisabledHotkeys", newVal); err != nil {
 			log.Fatalf("Error writing to registry: %v", err)
 		}

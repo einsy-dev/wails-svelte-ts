@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/einsy-dev/WailsSvelte/internal/window"
 	"golang.design/x/hotkey"
 	"golang.design/x/hotkey/mainthread"
 )
@@ -14,6 +15,8 @@ func Startup() {
 }
 
 func fn() {
+	RegistryEdit()
+
 	hk := hotkey.New([]hotkey.Modifier{hotkey.ModWin}, hotkey.KeyV)
 	err := hk.Register()
 
@@ -22,8 +25,7 @@ func fn() {
 		return
 	}
 
-	for msg := range hk.Keydown() {
-
-		log.Printf("hotkey: %v is down\n", msg)
+	for range hk.Keydown() {
+		window.Window.Show()
 	}
 }

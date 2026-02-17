@@ -6,6 +6,7 @@ import (
 
 	"github.com/einsy-dev/WailsSvelte/internal/app"
 	"github.com/einsy-dev/WailsSvelte/internal/clipboard"
+	"github.com/einsy-dev/WailsSvelte/internal/shortcut"
 	"github.com/wailsapp/wails/v2"
 	"github.com/wailsapp/wails/v2/pkg/options"
 	"github.com/wailsapp/wails/v2/pkg/options/assetserver"
@@ -29,8 +30,9 @@ func main() {
 		},
 		BackgroundColour: &options.RGBA{R: 0, G: 0, B: 0, A: 1},
 		OnStartup: func(ctx context.Context) {
-			app.App.Startup(ctx)
-			clipboard.Clipboard.Startup(ctx)
+			go app.App.Startup(ctx)
+			go shortcut.Startup()
+			go clipboard.Clipboard.Startup(ctx)
 		},
 		// Windows: &windows.Options{
 		// 	WebviewIsTransparent: true,

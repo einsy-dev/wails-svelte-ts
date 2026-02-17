@@ -2,9 +2,13 @@ module github.com/einsy-dev/WailsSvelte
 
 go 1.24.0
 
-require github.com/wailsapp/wails/v2 v2.10.2
+require (
+	github.com/wailsapp/wails/v2 v2.10.2
+	golang.design/x/hotkey v0.4.1
+)
 
 require (
+	golang.design/x/mainthread v0.3.0 // indirect
 	golang.org/x/exp/shiny v0.0.0-20250606033433-dcc06ee1d476 // indirect
 	golang.org/x/image v0.28.0 // indirect
 	golang.org/x/mobile v0.0.0-20250606033058-a2a15c67f36f // indirect
@@ -37,7 +41,7 @@ require (
 	golang.design/x/clipboard v0.7.1
 	golang.org/x/crypto v0.33.0 // indirect
 	golang.org/x/net v0.35.0 // indirect
-	golang.org/x/sys v0.37.0 // indirect
+	golang.org/x/sys v0.37.0
 	golang.org/x/text v0.30.0 // indirect
 )
 

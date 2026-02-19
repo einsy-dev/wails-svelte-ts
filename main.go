@@ -18,14 +18,14 @@ var assets embed.FS
 
 func main() {
 	err := wails.Run(&options.App{
-		Title:         "WailsSvelte",
-		Width:         500,
-		Height:        300,
-		DisableResize: true,
-		// Frameless:     true,
-		// StartHidden:       true,
-		// HideWindowOnClose: true,
-		AlwaysOnTop: true,
+		Title:             "WailsSvelte",
+		Width:             500,
+		Height:            300,
+		DisableResize:     true,
+		Frameless:         true,
+		StartHidden:       true,
+		HideWindowOnClose: true,
+		AlwaysOnTop:       true,
 		AssetServer: &assetserver.Options{
 			Assets: assets,
 		},
@@ -36,12 +36,9 @@ func main() {
 			shortcut.Startup()
 			clipboard.Clipboard.Startup(ctx)
 		},
-		// Windows: &windows.Options{
-		// 	WebviewIsTransparent: true,
-		// 	WindowIsTranslucent:  true,
-		// },
 		Bind: []interface{}{
 			clipboard.Bind,
+			window.Bind,
 		},
 	})
 	if err != nil {

@@ -10,12 +10,17 @@ require (
 
 require (
 	github.com/dblohm7/wingoes v0.0.0-20250822163801-6d8e6105c62d // indirect
+	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/ebitengine/purego v0.9.1 // indirect
 	github.com/gen2brain/shm v0.1.1 // indirect
+	github.com/glebarez/go-sqlite v1.21.2 // indirect
 	github.com/jezek/xgb v1.2.0 // indirect
+	github.com/jinzhu/inflection v1.0.0 // indirect
+	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/lufia/plan9stats v0.0.0-20251013123823-9fd1530e3ec3 // indirect
 	github.com/otiai10/gosseract/v2 v2.4.1 // indirect
 	github.com/power-devops/perfstat v0.0.0-20240221224432-82ca36839d55 // indirect
+	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
 	github.com/robotn/xgb v0.10.0 // indirect
 	github.com/robotn/xgbutil v0.10.0 // indirect
 	github.com/shirou/gopsutil/v4 v4.25.10 // indirect
@@ -33,10 +38,15 @@ require (
 	golang.org/x/exp/shiny v0.0.0-20250606033433-dcc06ee1d476 // indirect
 	golang.org/x/image v0.36.0 // indirect
 	golang.org/x/mobile v0.0.0-20250606033058-a2a15c67f36f // indirect
+	modernc.org/libc v1.22.5 // indirect
+	modernc.org/mathutil v1.5.0 // indirect
+	modernc.org/memory v1.5.0 // indirect
+	modernc.org/sqlite v1.23.1 // indirect
 )
 
 require (
 	github.com/bep/debounce v1.2.1 // indirect
+	github.com/glebarez/sqlite v1.11.0
 	github.com/go-ole/go-ole v1.3.0 // indirect
 	github.com/godbus/dbus/v5 v5.2.2 // indirect
 	github.com/google/uuid v1.6.0 // indirect
@@ -64,6 +74,7 @@ require (
 	golang.org/x/net v0.35.0 // indirect
 	golang.org/x/sys v0.41.0
 	golang.org/x/text v0.34.0 // indirect
+	gorm.io/gorm v1.31.1
 )
 
 // replace github.com/wailsapp/wails/v2 v2.9.2 => C:\Users\daan\go\pkg\mod

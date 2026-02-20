@@ -7,6 +7,7 @@ import (
 	"github.com/einsy-dev/WailsSvelte/internal/app"
 	"github.com/einsy-dev/WailsSvelte/internal/clipboard"
 	"github.com/einsy-dev/WailsSvelte/internal/shortcut"
+	"github.com/einsy-dev/WailsSvelte/internal/storage"
 	"github.com/einsy-dev/WailsSvelte/internal/window"
 	"github.com/wailsapp/wails/v2"
 	"github.com/wailsapp/wails/v2/pkg/options"
@@ -35,6 +36,7 @@ func main() {
 			window.Window.Startup(ctx)
 			shortcut.Startup()
 			clipboard.Clipboard.Startup(ctx)
+			storage.Startup(ctx)
 		},
 		Bind: []interface{}{
 			clipboard.Bind,

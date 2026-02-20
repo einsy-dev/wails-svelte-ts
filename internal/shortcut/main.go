@@ -1,7 +1,6 @@
 package shortcut
 
 import (
-	"fmt"
 	"log"
 
 	"github.com/einsy-dev/WailsSvelte/internal/window"
@@ -10,8 +9,7 @@ import (
 )
 
 func Startup() {
-	fmt.Println("shortcut start")
-	mainthread.Init(fn)
+	go mainthread.Init(fn)
 }
 
 func fn() {

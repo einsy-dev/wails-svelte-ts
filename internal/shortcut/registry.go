@@ -24,10 +24,10 @@ func RegistryEdit() {
 		if err := key.SetStringValue("DisabledHotkeys", newVal); err != nil {
 			log.Fatalf("Error writing to registry: %v", err)
 		}
-		fmt.Printf("Win+C added to DisabledHotkeys. New value: %s\n", newVal)
+		fmt.Printf("Win+V added to DisabledHotkeys. New value: %s\n", newVal)
 		restartExplorer()
 	} else {
-		fmt.Println("Win+C is already disabled in registry.")
+		fmt.Println("Win+V is already disabled in registry.")
 	}
 }
 

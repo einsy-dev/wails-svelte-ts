@@ -18,11 +18,10 @@ type cp struct {
 func (b *cp) Startup(ctx context.Context) {
 	b.ctx = ctx
 	clipboard.Init()
-	b.Watch()
+	go b.Watch()
 }
 
 func (b *cp) Watch() {
-	fmt.Println("start")
 	chs := clipboard.Watch(b.ctx, clipboard.FmtText)
 	chi := clipboard.Watch(b.ctx, clipboard.FmtImage)
 

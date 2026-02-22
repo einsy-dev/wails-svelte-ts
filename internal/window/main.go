@@ -9,6 +9,7 @@ import (
 
 type window struct {
 	ctx context.Context
+	Pid int
 }
 
 func (b *window) Startup(ctx context.Context) {
@@ -16,6 +17,8 @@ func (b *window) Startup(ctx context.Context) {
 }
 
 func (b *window) Show() {
+	b.Pid = robotgo.GetPid()
+
 	windowW, windowH := runtime.WindowGetSize(b.ctx) // window size
 	screenW, screenH := robotgo.GetScreenSize()      // screen size
 	x, y := robotgo.Location()                       //cursor position

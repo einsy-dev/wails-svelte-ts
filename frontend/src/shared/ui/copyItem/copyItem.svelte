@@ -1,11 +1,12 @@
 <script lang="ts">
+  import { Paste } from "$lib/wailsjs/go/clipboard";
   import { Hide } from "$lib/wailsjs/go/window";
 
-  const { text = "", onclick = () => {} } = $props<{ text?: string; onclick?: () => void }>();
+  const { text = "" } = $props<{ text?: string }>();
 
   function callback(e: MouseEvent) {
-    onclick(e);
     Hide();
+    Paste(text);
   }
 </script>
 

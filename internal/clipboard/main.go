@@ -5,7 +5,9 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"time"
 
+	"github.com/einsy-dev/WailsSvelte/utils"
 	"golang.design/x/clipboard"
 )
 
@@ -18,19 +20,17 @@ type cp struct {
 func (b *cp) Startup(ctx context.Context) {
 	b.ctx = ctx
 	clipboard.Init()
-	go b.Watch()
+	go b.Start()
 }
 
-func (b *cp) Watch() {
-	chs := clipboard.Watch(b.ctx, clipboard.FmtText)
-	chi := clipboard.Watch(b.ctx, clipboard.FmtImage)
+func (b *cp) Start() {
+	tCh, iCh := Watch(100 * time.Microsecond)
 
 	for {
 		select {
-		case msg := <-chs:
-			b.text = append(b.text, string(msg))
-			fmt.Println(string(msg), b.text)
-		case msg := <-chi:
+		case msg := <-tCh:
+			b.text = utils.FilterUnique(append([]string{string(msg)}, b.text...))
+		case msg := <-iCh:
 			b.img = append(b.img, string(msg))
 			home, _ := os.UserHomeDir()
 			path := filepath.Join(home, "Desktop", "clipboard_image.png")

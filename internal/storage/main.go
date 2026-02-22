@@ -12,9 +12,8 @@ func Startup(ctx context.Context) {
 	if err != nil {
 		panic(err)
 	}
-	db.AutoMigrate(&Text{}, &Group{})
+	db.AutoMigrate(&Text{}, &Img{}, &Totp{}, &Group{})
 	Storage.db = db
-	Seed()
 }
 
 type storage struct {

@@ -4,11 +4,13 @@ go 1.25.0
 
 require (
 	github.com/go-vgo/robotgo v1.0.0
+	github.com/pquerna/otp v1.5.0
 	github.com/wailsapp/wails/v2 v2.10.2
 	golang.design/x/hotkey v0.4.1
 )
 
 require (
+	github.com/boombuler/barcode v1.0.1-0.20190219062509-6c824513bacc // indirect
 	github.com/dblohm7/wingoes v0.0.0-20250822163801-6d8e6105c62d // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/ebitengine/purego v0.9.1 // indirect

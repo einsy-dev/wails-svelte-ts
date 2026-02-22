@@ -37,6 +37,7 @@ func main() {
 			shortcut.Startup()
 			clipboard.Clipboard.Startup(ctx)
 			storage.Startup(ctx)
+			// totp.Startup()
 		},
 		Bind: []interface{}{
 			clipboard.Bind,

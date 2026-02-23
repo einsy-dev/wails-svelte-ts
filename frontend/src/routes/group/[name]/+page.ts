@@ -1,8 +1,8 @@
-import { GetGroup } from "$lib/wailsjs/go/clipboard";
+import { GetByGroup } from "$lib/wailsjs/go/clipboard";
 
 export const prerender = false;
 
 export async function load({ params }) {
-  const res = await GetGroup(params.name);
+  const res = await GetByGroup(params.name);
   return { data: res };
 }

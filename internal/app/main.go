@@ -2,17 +2,24 @@ package app
 
 import (
 	"context"
+
+	m "github.com/einsy-dev/WailsSvelte/internal/storage/models"
+	"github.com/glebarez/sqlite"
+	"gorm.io/gorm"
 )
 
-type app struct {
-	ctx context.Context
-}
+// global state
 
-func (b *app) Startup(ctx context.Context) {
-	b.ctx = ctx
-	// time.Sleep(8 * time.Second)
-	// runtime.WindowSetPosition(ctx, 1400, 700)
-	// runtime.Show(ctx)
-}
+var Ctx context.Context
+var Db *gorm.DB
 
-var App = &app{}
+func Startup(ctx context.Context) {
+	Ctx = ctx
+
+	db, err := gorm.Open(sqlite.Open("storage.db"), &gorm.Config{})
+	if err != nil {
+		panic(err)
+	}
+	db.AutoMigrate(&m.Text{}, &m.Img{}, &m.Totp{}, &m.Group{})
+	Db = db
+}

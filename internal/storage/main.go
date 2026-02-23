@@ -1,24 +1,15 @@
 package storage
 
 import (
-	"context"
-
-	"github.com/glebarez/sqlite"
-	"gorm.io/gorm"
+	"github.com/einsy-dev/WailsSvelte/internal/app"
+	m "github.com/einsy-dev/WailsSvelte/internal/storage/models"
+	"gorm.io/gorm/clause"
 )
 
-func Startup(ctx context.Context) {
-	db, err := gorm.Open(sqlite.Open("storage.db"), &gorm.Config{})
-	if err != nil {
-		panic(err)
-	}
-	db.AutoMigrate(&Text{}, &Img{}, &Totp{}, &Group{})
-	Storage.db = db
-}
+func Seed() {
+	var groups = []m.Group{{Name: "History"}, {Name: "Favorite"}}
+	app.Db.Clauses(clause.OnConflict{DoNothing: true}).Create(&groups)
 
-type storage struct {
-	ctx context.Context
-	db  *gorm.DB
+	var g m.Group
+	app.Db.Where(&m.Group{Name: "Favorite"}).First(&g)
 }
-
-var Storage = &storage{}

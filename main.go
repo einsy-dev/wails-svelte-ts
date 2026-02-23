@@ -32,12 +32,10 @@ func main() {
 		},
 		BackgroundColour: &options.RGBA{R: 0, G: 0, B: 0, A: 1},
 		OnStartup: func(ctx context.Context) {
-			app.App.Startup(ctx)
-			window.Window.Startup(ctx)
+			app.Startup(ctx)
 			shortcut.Startup()
-			clipboard.Clipboard.Startup(ctx)
-			storage.Startup(ctx)
-			// totp.Startup()
+			clipboard.Clipboard.Startup()
+			storage.Seed()
 		},
 		Bind: []interface{}{
 			clipboard.Bind,

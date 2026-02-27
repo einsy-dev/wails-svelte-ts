@@ -19,11 +19,11 @@ var assets embed.FS
 
 func main() {
 	err := wails.Run(&options.App{
-		Title:             "WailsSvelte",
-		Width:             600,
-		Height:            400,
-		DisableResize:     true,
-		Frameless:         true,
+		Title:  "WailsSvelte",
+		Width:  600,
+		Height: 400,
+		// DisableResize:     true,
+		// Frameless:         true,
 		StartHidden:       true,
 		HideWindowOnClose: true,
 		AlwaysOnTop:       true,

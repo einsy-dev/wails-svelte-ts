@@ -24,7 +24,11 @@ func (b *cp) Startup() {
 func (b *cp) Start() {
 	tCh, iCh := Watch(100 * time.Microsecond)
 	var hGroup m.Group
-	app.Db.Where(&m.Group{Name: "History"}).First(&hGroup)
+	err := app.Db.Where(&m.Group{Name: "history"}).First(&hGroup).Error
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 
 	for {
 		select {

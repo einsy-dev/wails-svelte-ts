@@ -7,9 +7,6 @@ import (
 )
 
 func Seed() {
-	var groups = []m.Group{{Name: "History"}, {Name: "Favorite"}}
+	var groups = []m.Group{{Name: "history"}, {Name: "favorites"}, {Name: "passwords"}, {Name: "totp"}}
 	app.Db.Clauses(clause.OnConflict{DoNothing: true}).Create(&groups)
-
-	var g m.Group
-	app.Db.Where(&m.Group{Name: "Favorite"}).First(&g)
 }

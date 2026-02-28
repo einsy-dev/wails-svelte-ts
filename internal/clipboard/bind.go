@@ -15,11 +15,13 @@ type index struct{}
 func (b *index) GetHistory() []m.Text {
 
 	var hGroup m.Group
-	app.Db.Where(&m.Group{Name: "History"}).First(&hGroup)
-
+	err := app.Db.Where(&m.Group{Name: "history"}).First(&hGroup).Error
+	if err != nil {
+		fmt.Println(err)
+		return nil
+	}
 	var res []m.Text
 	app.Db.Where("group_id = ? AND value <> ? AND value IS NOT NULL", hGroup.ID, "").Limit(-1).Order("id desc").Find(&res)
-	fmt.Println(len(res))
 	return res
 }
 
@@ -35,6 +37,19 @@ func (b *index) Paste(val string) {
 	robotgo.ActivePid(window.Window.Pid)
 	clipboard.Write(clipboard.FmtText, []byte(val))
 	robotgo.KeyTap("v", "ctrl")
+}
+
+func (b *index) SetGroup(id uint, name string) {
+	var group m.Group
+	err := app.Db.Where(&m.Group{Name: name}).First(&group).Error
+	if err != nil {
+		fmt.Println("find group err", err)
+		return
+	}
+	var item m.Text
+	app.Db.Where("id = ?", id).First(&item)
+	item.GroupID = group.ID
+	app.Db.Save(&item)
 }
 
 var Bind = &index{}

@@ -4,6 +4,6 @@ import "gorm.io/gorm"
 
 type Img struct {
 	gorm.Model
-	Path    string
+	Path    string `gorm:"uniqueIndex"`
 	GroupID uint
 }

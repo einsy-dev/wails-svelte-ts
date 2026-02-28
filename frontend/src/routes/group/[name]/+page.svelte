@@ -4,4 +4,4 @@
   let { data } = $props();
 </script>
 
-<CopyList {data} />
+<CopyList data={data.data} />

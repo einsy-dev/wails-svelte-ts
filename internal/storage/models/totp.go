@@ -4,6 +4,6 @@ import "gorm.io/gorm"
 
 type Totp struct {
 	gorm.Model
-	Key     string
+	Key     string `gorm:"uniqueIndex"`
 	GroupID uint
 }
